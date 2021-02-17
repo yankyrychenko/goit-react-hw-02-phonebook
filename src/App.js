@@ -15,16 +15,16 @@ class App extends Component {
     filter: '',
   };
 
-  addContact = contact => {
+  addContact = newContact => {
     if (
-      this.state.contacts.map(contact => contact.name).includes(contact.name)
+      this.state.contacts.map(contact => contact.name).includes(newContact.name)
     ) {
-      alert(`${contact.name} is already in contacts`);
+      alert(`${newContact.name} is already in contacts`);
       return;
     }
 
     this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
+      contacts: [newContact, ...prevState.contacts],
     }));
   };
 
@@ -49,7 +49,7 @@ class App extends Component {
 
     return (
       <>
-        <h2>Phonebook</h2>
+        <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
